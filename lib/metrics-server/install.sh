@@ -1,1 +1,0 @@
-kubectl apply -f metrics-server-components.yaml
