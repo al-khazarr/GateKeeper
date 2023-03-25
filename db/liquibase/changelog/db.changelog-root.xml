@@ -14,7 +14,7 @@
             <runningAs  username="postgres"/>
         </preConditions>
 
-        <changeSet author="romapres" id="v0.0.0">
+        <changeSet author="al-khazarr" id="v0.0.0">
             <tagDatabase tag="v0.0.0"/>
         </changeSet>
         

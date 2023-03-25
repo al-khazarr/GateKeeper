@@ -11,12 +11,12 @@ import (
 
 	neturl "net/url"
 
-	_ctx "github.com/al-khazarr/SocialOpportunities/pkg/common/ctx"
-	_err "github.com/al-khazarr/SocialOpportunities/pkg/common/error"
-	_httplog "github.com/al-khazarr/SocialOpportunities/pkg/common/httplog"
-	_http "github.com/al-khazarr/SocialOpportunities/pkg/common/httpservice"
-	_log "github.com/al-khazarr/SocialOpportunities/pkg/common/logger"
-	_metrics "github.com/al-khazarr/SocialOpportunities/pkg/common/metrics"
+	_ctx "github.com/al-khazarr/GateKeeper/pkg/common/ctx"
+	_err "github.com/al-khazarr/GateKeeper/pkg/common/error"
+	_httplog "github.com/al-khazarr/GateKeeper/pkg/common/httplog"
+	_http "github.com/al-khazarr/GateKeeper/pkg/common/httpservice"
+	_log "github.com/al-khazarr/GateKeeper/pkg/common/logger"
+	_metrics "github.com/al-khazarr/GateKeeper/pkg/common/metrics"
 )
 
 const HTTP_CLIENT_GET = "GET"

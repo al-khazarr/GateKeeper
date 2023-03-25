@@ -4,20 +4,21 @@ package main
 
 import (
 	"context"
-	"gopkg.in/yaml.v3"
 	"os"
 	"runtime/debug"
 
+	"gopkg.in/yaml.v3"
+
 	"github.com/urfave/cli"
 
-	_err "github.com/al-khazarr/SocialOpportunities/pkg/common/error"
-	_log "github.com/al-khazarr/SocialOpportunities/pkg/common/logger"
-	_metrics "github.com/al-khazarr/SocialOpportunities/pkg/common/metrics"
-	_recover "github.com/al-khazarr/SocialOpportunities/pkg/common/recover"
-	_version "github.com/al-khazarr/SocialOpportunities/pkg/common/version"
+	_err "github.com/al-khazarr/GateKeeper/pkg/common/error"
+	_log "github.com/al-khazarr/GateKeeper/pkg/common/logger"
+	_metrics "github.com/al-khazarr/GateKeeper/pkg/common/metrics"
+	_recover "github.com/al-khazarr/GateKeeper/pkg/common/recover"
+	_version "github.com/al-khazarr/GateKeeper/pkg/common/version"
 
-	_cfg "github.com/al-khazarr/SocialOpportunities/pkg/app/config"
-	daemon "github.com/al-khazarr/SocialOpportunities/pkg/app/daemon"
+	_cfg "github.com/al-khazarr/GateKeeper/pkg/app/config"
+	daemon "github.com/al-khazarr/GateKeeper/pkg/app/daemon"
 )
 
 // Параметры, подменяемые компилятором при сборке бинарника
@@ -131,8 +132,8 @@ func main() {
 	// Create new Application
 	app.Name = "Example Go APP"
 	app.Version = _version.Format()
-	app.Author = "romapres"
-	app.Email = "romapres@mail.ru"
+	app.Author = "al-khazarr"
+	app.Email = "al-khazarr@mail.ru"
 	app.Flags = flags // присваиваем ранее определенные флаги
 	app.Writer = os.Stderr
 

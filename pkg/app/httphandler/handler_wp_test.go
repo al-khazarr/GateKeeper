@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
-	_log "github.com/al-khazarr/SocialOpportunities/pkg/common/logger"
-	_wp "github.com/al-khazarr/SocialOpportunities/pkg/common/workerpool"
-	_wpservice "github.com/al-khazarr/SocialOpportunities/pkg/common/workerpoolservice"
+	_log "github.com/al-khazarr/GateKeeper/pkg/common/logger"
+	_wp "github.com/al-khazarr/GateKeeper/pkg/common/workerpool"
+	_wpservice "github.com/al-khazarr/GateKeeper/pkg/common/workerpoolservice"
 )
 
 var NumArray1 = &[]uint64{50}
@@ -33,7 +33,7 @@ var NumArray4096 = &[]uint64{50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50,
 
 var tasks = make([]*_wp.Task, 0, 10000)
 
-// go.exe test -benchmem -run=^$ -bench ^BenchmarkCalculateFactorial$ github.com/al-khazarr/SocialOpportunities/pkg/app/httphandler -count 5 -v
+// go.exe test -benchmem -run=^$ -bench ^BenchmarkCalculateFactorial$ github.com/al-khazarr/GateKeeper/pkg/app/httphandler -count 5 -v
 func BenchmarkCalculateFactorial(b *testing.B) {
 
 	// конфигурационные параметры для Worker pool service, все timeout выставлены в заведомо большие значения, чтобы не срабатывали.

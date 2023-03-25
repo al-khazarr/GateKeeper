@@ -7,9 +7,9 @@ import (
 	"strconv"
 	"strings"
 
-	_ctx "github.com/al-khazarr/SocialOpportunities/pkg/common/ctx"
-	_err "github.com/al-khazarr/SocialOpportunities/pkg/common/error"
-	_log "github.com/al-khazarr/SocialOpportunities/pkg/common/logger"
+	_ctx "github.com/al-khazarr/GateKeeper/pkg/common/ctx"
+	_err "github.com/al-khazarr/GateKeeper/pkg/common/error"
+	_log "github.com/al-khazarr/GateKeeper/pkg/common/logger"
 )
 
 // HTTPLogHandler handle HTTP log mode

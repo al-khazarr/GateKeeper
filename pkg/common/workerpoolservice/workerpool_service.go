@@ -5,9 +5,9 @@ import (
 	"sync"
 	"time"
 
-	_err "github.com/al-khazarr/SocialOpportunities/pkg/common/error"
-	_recover "github.com/al-khazarr/SocialOpportunities/pkg/common/recover"
-	_wp "github.com/al-khazarr/SocialOpportunities/pkg/common/workerpool"
+	_err "github.com/al-khazarr/GateKeeper/pkg/common/error"
+	_recover "github.com/al-khazarr/GateKeeper/pkg/common/recover"
+	_wp "github.com/al-khazarr/GateKeeper/pkg/common/workerpool"
 )
 
 // Service represent WorkerPool service

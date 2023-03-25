@@ -7,15 +7,15 @@ import (
 	"syscall"
 	"time"
 
-	_cfg "github.com/al-khazarr/SocialOpportunities/pkg/app/config"
-	_err "github.com/al-khazarr/SocialOpportunities/pkg/common/error"
-	_httplog "github.com/al-khazarr/SocialOpportunities/pkg/common/httplog"
-	_httpserver "github.com/al-khazarr/SocialOpportunities/pkg/common/httpserver"
-	_http "github.com/al-khazarr/SocialOpportunities/pkg/common/httpservice"
-	_log "github.com/al-khazarr/SocialOpportunities/pkg/common/logger"
-	_wpservice "github.com/al-khazarr/SocialOpportunities/pkg/common/workerpoolservice"
+	_cfg "github.com/al-khazarr/GateKeeper/pkg/app/config"
+	_err "github.com/al-khazarr/GateKeeper/pkg/common/error"
+	_httplog "github.com/al-khazarr/GateKeeper/pkg/common/httplog"
+	_httpserver "github.com/al-khazarr/GateKeeper/pkg/common/httpserver"
+	_http "github.com/al-khazarr/GateKeeper/pkg/common/httpservice"
+	_log "github.com/al-khazarr/GateKeeper/pkg/common/logger"
+	_wpservice "github.com/al-khazarr/GateKeeper/pkg/common/workerpoolservice"
 
-	httphandler "github.com/al-khazarr/SocialOpportunities/pkg/app/httphandler"
+	httphandler "github.com/al-khazarr/GateKeeper/pkg/app/httphandler"
 )
 
 // Daemon represent top level daemon

@@ -6,9 +6,9 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	auth "gopkg.in/korylprince/go-ad-auth.v2"
 
-	_err "github.com/al-khazarr/SocialOpportunities/pkg/common/error"
-	_jwt "github.com/al-khazarr/SocialOpportunities/pkg/common/jwt"
-	_log "github.com/al-khazarr/SocialOpportunities/pkg/common/logger"
+	_err "github.com/al-khazarr/GateKeeper/pkg/common/error"
+	_jwt "github.com/al-khazarr/GateKeeper/pkg/common/jwt"
+	_log "github.com/al-khazarr/GateKeeper/pkg/common/logger"
 )
 
 // checkAuthentication check HTTP Basic Authentication or MS AD Authentication

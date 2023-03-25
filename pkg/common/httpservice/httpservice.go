@@ -14,14 +14,14 @@ import (
 
 	"encoding/json"
 
-	bytespool "github.com/al-khazarr/SocialOpportunities/pkg/common/bytespool"
-	_ctx "github.com/al-khazarr/SocialOpportunities/pkg/common/ctx"
-	_err "github.com/al-khazarr/SocialOpportunities/pkg/common/error"
-	_httplog "github.com/al-khazarr/SocialOpportunities/pkg/common/httplog"
-	_jwt "github.com/al-khazarr/SocialOpportunities/pkg/common/jwt"
-	_log "github.com/al-khazarr/SocialOpportunities/pkg/common/logger"
-	_metrics "github.com/al-khazarr/SocialOpportunities/pkg/common/metrics"
-	_recover "github.com/al-khazarr/SocialOpportunities/pkg/common/recover"
+	bytespool "github.com/al-khazarr/GateKeeper/pkg/common/bytespool"
+	_ctx "github.com/al-khazarr/GateKeeper/pkg/common/ctx"
+	_err "github.com/al-khazarr/GateKeeper/pkg/common/error"
+	_httplog "github.com/al-khazarr/GateKeeper/pkg/common/httplog"
+	_jwt "github.com/al-khazarr/GateKeeper/pkg/common/jwt"
+	_log "github.com/al-khazarr/GateKeeper/pkg/common/logger"
+	_metrics "github.com/al-khazarr/GateKeeper/pkg/common/metrics"
+	_recover "github.com/al-khazarr/GateKeeper/pkg/common/recover"
 )
 
 const (

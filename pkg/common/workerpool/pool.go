@@ -6,9 +6,9 @@ import (
 	"sync"
 	"time"
 
-	_err "github.com/al-khazarr/SocialOpportunities/pkg/common/error"
-	_metrics "github.com/al-khazarr/SocialOpportunities/pkg/common/metrics"
-	_recover "github.com/al-khazarr/SocialOpportunities/pkg/common/recover"
+	_err "github.com/al-khazarr/GateKeeper/pkg/common/error"
+	_metrics "github.com/al-khazarr/GateKeeper/pkg/common/metrics"
+	_recover "github.com/al-khazarr/GateKeeper/pkg/common/recover"
 )
 
 const POOL_MAX_TIMEOUT = time.Hour * 24 * 365

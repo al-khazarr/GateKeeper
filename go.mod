@@ -1,4 +1,4 @@
-module github.com/al-khazarr/SocialOpportunities
+module github.com/al-khazarr/GateKeeper
 
 go 1.18
 

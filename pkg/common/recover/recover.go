@@ -1,8 +1,8 @@
 package recover
 
 import (
-	_err "github.com/al-khazarr/SocialOpportunities/pkg/common/error"
-	_log "github.com/al-khazarr/SocialOpportunities/pkg/common/logger"
+	_err "github.com/al-khazarr/GateKeeper/pkg/common/error"
+	_log "github.com/al-khazarr/GateKeeper/pkg/common/logger"
 )
 
 // GetRecoverError - формирует и логирует ошибку

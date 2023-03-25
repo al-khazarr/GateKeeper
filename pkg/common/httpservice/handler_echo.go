@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strconv"
 
-	_ctx "github.com/al-khazarr/SocialOpportunities/pkg/common/ctx"
-	_log "github.com/al-khazarr/SocialOpportunities/pkg/common/logger"
+	_ctx "github.com/al-khazarr/GateKeeper/pkg/common/ctx"
+	_log "github.com/al-khazarr/GateKeeper/pkg/common/logger"
 )
 
 // EchoHandler handle echo page with request header and body

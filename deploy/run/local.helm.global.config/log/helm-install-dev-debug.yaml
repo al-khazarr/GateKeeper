@@ -17,7 +17,7 @@ appApi:
     targetCPUUtilizationPercentage: 90
     targetMemoryUtilizationPercentage: 90
   image:
-    repository: romapres2010/app-api
+    repository: al-khazarr2010/app-api
     tag: 2.0.0
   replicaCount: 1
   resources:
@@ -72,7 +72,7 @@ appApi:
   image:
     hostname: docker.io
     pullPolicy: IfNotPresent
-    repository: romapres2010/app-api
+    repository: al-khazarr2010/app-api
     tag: 2.0.0
   imagePullSecrets: []
   nodeSelector: {}
@@ -121,7 +121,7 @@ appLiquibase:
   image:
     hostname: docker.io
     pullPolicy: IfNotPresent
-    repository: romapres2010/app-liquibase
+    repository: al-khazarr2010/app-liquibase
     tag: ""
   podAnnotations: {}
   restartPolicy: Never
@@ -217,7 +217,7 @@ spec:
           command: ['sh', '-c', "until nc -w 2 $(APP_PG_HOST) $(APP_PG_PORT); do echo Waiting for $(APP_PG_HOST):$(APP_PG_PORT) to be ready; sleep 5; done"] # wait for db to be ready
       containers:
         - name: dev-app-liquibase
-          image: "romapres2010/app-liquibase:2.0.0"
+          image: "al-khazarr2010/app-liquibase:2.0.0"
           imagePullPolicy: IfNotPresent
           env:
             - name: APP_PG_HOST
@@ -306,7 +306,7 @@ spec:
           command: ['sh', '-c', "until nc -w 2 $(APP_PG_HOST) $(APP_PG_PORT); do echo Waiting for $(APP_PG_HOST):$(APP_PG_PORT) to be ready; sleep 5; done"] # wait for db to be ready
       containers:
         - name: dev-app-liquibase
-          image: "romapres2010/app-liquibase:2.0.0"
+          image: "al-khazarr2010/app-liquibase:2.0.0"
           imagePullPolicy: IfNotPresent
           env:
             - name: APP_PG_HOST
@@ -361,7 +361,8 @@ metadata:
   namespace: go-app
 type: Opaque
 stringData:
-  APP_PG_USER: postgres  APP_PG_PASS: postgres
+  APP_PG_USER: postgres
+  APP_PG_PASS: postgres
 ---
 # Source: app/templates/app-secret.yaml
 apiVersion: v1
@@ -549,7 +550,7 @@ spec:
       containers:
         - name: app-api
           securityContext:
-            {}
+            {}al-khazarr
           image: "romapres2010/app-api:2.0.0"
           imagePullPolicy: IfNotPresent
           env:

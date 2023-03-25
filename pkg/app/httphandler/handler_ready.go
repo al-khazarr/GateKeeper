@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strconv"
 
-	_ctx "github.com/al-khazarr/SocialOpportunities/pkg/common/ctx"
-	_http "github.com/al-khazarr/SocialOpportunities/pkg/common/httpservice"
-	_log "github.com/al-khazarr/SocialOpportunities/pkg/common/logger"
+	_ctx "github.com/al-khazarr/GateKeeper/pkg/common/ctx"
+	_http "github.com/al-khazarr/GateKeeper/pkg/common/httpservice"
+	_log "github.com/al-khazarr/GateKeeper/pkg/common/logger"
 )
 
 // ReadyHandler handle to readinessProbe

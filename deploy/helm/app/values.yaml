@@ -48,7 +48,7 @@ appApi:
   restartPolicy: Always
   image:
     hostname: docker.io
-    repository: romapres2010/app-api
+    repository: al-khazarr2010/app-api
     pullPolicy: IfNotPresent
     tag: ""
   resources:
@@ -96,7 +96,7 @@ appLiquibase:
   restartPolicy: Never
   image:
     hostname: docker.io
-    repository: romapres2010/app-liquibase
+    repository: al-khazarr2010/app-liquibase
     tag: ""
     pullPolicy: IfNotPresent
 

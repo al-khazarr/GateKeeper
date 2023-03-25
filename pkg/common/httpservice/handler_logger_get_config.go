@@ -8,9 +8,9 @@ import (
 	"net/http"
 	"strconv"
 
-	_ctx "github.com/al-khazarr/SocialOpportunities/pkg/common/ctx"
-	_err "github.com/al-khazarr/SocialOpportunities/pkg/common/error"
-	_log "github.com/al-khazarr/SocialOpportunities/pkg/common/logger"
+	_ctx "github.com/al-khazarr/GateKeeper/pkg/common/ctx"
+	_err "github.com/al-khazarr/GateKeeper/pkg/common/error"
+	_log "github.com/al-khazarr/GateKeeper/pkg/common/logger"
 )
 
 // LoggerGetConfigHandler Сервис отвечает за считывание в YAML формате конфигурационных настроек logger

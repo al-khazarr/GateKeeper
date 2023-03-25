@@ -180,7 +180,7 @@ spec:
             configMapKeyRef:
               key: APP_PG_DBNAME
               name: dev-app-config
-        image: romapres2010/app-api:2.0.0
+        image: al-khazarr2010/app-api:2.0.0
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 5
@@ -383,7 +383,7 @@ spec:
         configMapKeyRef:
           key: APP_PG_CHANGELOG
           name: dev-app-config
-    image: romapres2010/app-liquibase:2.0.0
+    image: al-khazarr2010/app-liquibase:2.0.0
     imagePullPolicy: IfNotPresent
     name: app-liquibase
   initContainers:

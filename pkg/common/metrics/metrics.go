@@ -10,8 +10,8 @@ import (
 	"github.com/prometheus/client_golang/prometheus/collectors"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 
-	_err "github.com/al-khazarr/SocialOpportunities/pkg/common/error"
-	_log "github.com/al-khazarr/SocialOpportunities/pkg/common/logger"
+	_err "github.com/al-khazarr/GateKeeper/pkg/common/error"
+	_log "github.com/al-khazarr/GateKeeper/pkg/common/logger"
 )
 
 const (

@@ -3,16 +3,16 @@ package httphandler
 import (
 	"context"
 	"encoding/json"
-	_log "github.com/al-khazarr/SocialOpportunities/pkg/common/logger"
+	_log "github.com/al-khazarr/GateKeeper/pkg/common/logger"
 	"net/http"
 	"reflect"
 	"time"
 
-	_ctx "github.com/al-khazarr/SocialOpportunities/pkg/common/ctx"
-	_err "github.com/al-khazarr/SocialOpportunities/pkg/common/error"
-	_http "github.com/al-khazarr/SocialOpportunities/pkg/common/httpservice"
-	_wp "github.com/al-khazarr/SocialOpportunities/pkg/common/workerpool"
-	_wpservice "github.com/al-khazarr/SocialOpportunities/pkg/common/workerpoolservice"
+	_ctx "github.com/al-khazarr/GateKeeper/pkg/common/ctx"
+	_err "github.com/al-khazarr/GateKeeper/pkg/common/error"
+	_http "github.com/al-khazarr/GateKeeper/pkg/common/httpservice"
+	_wp "github.com/al-khazarr/GateKeeper/pkg/common/workerpool"
+	_wpservice "github.com/al-khazarr/GateKeeper/pkg/common/workerpoolservice"
 )
 
 type WpFactorialReqResp struct {

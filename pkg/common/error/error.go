@@ -8,7 +8,7 @@ import (
 
 	pkgerr "github.com/pkg/errors"
 
-	_log "github.com/al-khazarr/SocialOpportunities/pkg/common/logger"
+	_log "github.com/al-khazarr/GateKeeper/pkg/common/logger"
 )
 
 // ErrorMessage Сообщения

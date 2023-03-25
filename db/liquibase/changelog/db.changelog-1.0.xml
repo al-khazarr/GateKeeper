@@ -9,7 +9,7 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
         http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.9.xsd">
         
-        <changeSet id="1" author="romapres" runOnChange="false">
+        <changeSet id="1" author="al-khazarr" runOnChange="false">
             <validCheckSum>1:any</validCheckSum>
 
             <output>Initialing schema: schemaName=app</output>
@@ -24,7 +24,7 @@
             </rollback>
         </changeSet>
 
-        <changeSet author="romapres" id="v1.0.0">
+        <changeSet author="al-khazarr" id="v1.0.0">
             <tagDatabase tag="v1.0.0"/>
         </changeSet>
 

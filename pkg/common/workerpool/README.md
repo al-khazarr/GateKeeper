@@ -19,7 +19,7 @@ _Для task, которые должны выполняться быстрее 
 - wp_task_queue_buffer_len_vec - текущая длина канала-очереди task - показывает заполненность канала
 - wp_add_task_wait_count_vec - количество задач, ожидающих попадания в очередь
 
-Ссылка на [репозиторий проекта](https://github.com/al-khazarr/SocialOpportunities).
+Ссылка на [репозиторий проекта](https://github.com/al-khazarr/GateKeeper).
 
 Шаблон goapp в репозитории полностью готов к развертыванию в Docker, Docker Compose, Kubernetes (kustomize), Kubernetes (helm).
 
@@ -76,7 +76,7 @@ _Для task, которые должны выполняться быстрее 
 - worker - контролирует очередь задач выполняет task в своей goroutine  
 - pool - содержит очередь задач, создает worker и мониторит их статус, управляет процессом остановки
 
-Основные задачи [Task](https://github.com/al-khazarr/SocialOpportunities/blob/master/pkg/common/workerpool/task.go):
+Основные задачи [Task](https://github.com/al-khazarr/GateKeeper/blob/master/pkg/common/workerpool/task.go):
 - Запустить функцию-обработчик и передать ей входные данные
 - Контролировать результат выполнения функции-обработчика
 - Информировать "внешний мир" о завершении выполнения функции-обработчика
@@ -85,7 +85,7 @@ _Для task, которые должны выполняться быстрее 
 - Контролировать команду на остановку со стороны Worker pool
 - Информировать функцию-обработчика о необходимости срочной остановки
 
-Основные задачи [Worker](https://github.com/al-khazarr/SocialOpportunities/blob/master/pkg/common/workerpool/worker.go):
+Основные задачи [Worker](https://github.com/al-khazarr/GateKeeper/blob/master/pkg/common/workerpool/worker.go):
 - Ожидать появление в канале-очереди task и запустить ее на выполнение
 - Остановить работу при закрытии канала-очереди task
 - Перехватить panic, обработать ошибку и передать через канал ошибок информацию в pool
@@ -94,7 +94,7 @@ _Для task, которые должны выполняться быстрее 
 - При остановки worker, остановить текущую выполняемую task
 - Worker может работать в составе общего sync.WaitGroup, так и изолированно в фоне
 
-Основные задачи [Pool](https://github.com/al-khazarr/SocialOpportunities/blob/master/pkg/common/workerpool/pool.go):
+Основные задачи [Pool](https://github.com/al-khazarr/GateKeeper/blob/master/pkg/common/workerpool/pool.go):
 - Добавлять новые задачи в канал-очередь
 - Управлять запуском worker
 - Контролировать состояние worker через канал ошибок, перезапускать сбойные worker
@@ -293,7 +293,7 @@ func (ts *Task) Stop() {
 
 ### Функция-обработчик task
 
-Пример [фукнции-обработчик для расчета факториала n!](https://github.com/al-khazarr/SocialOpportunities/blob/master/pkg/app/httphandler/handler_wp.go). 
+Пример [фукнции-обработчик для расчета факториала n!](https://github.com/al-khazarr/GateKeeper/blob/master/pkg/app/httphandler/handler_wp.go). 
 
 На этом примере в дальнейшем будет тестировать производительность Worker pool для "кротких" task.
 
@@ -562,7 +562,7 @@ const (
 ```
 
 ### Запуск Pool
-[Pool](https://github.com/al-khazarr/SocialOpportunities/blob/master/pkg/common/workerpool/pool.go) может запускаться в двух режимах
+[Pool](https://github.com/al-khazarr/GateKeeper/blob/master/pkg/common/workerpool/pool.go) может запускаться в двух режимах
 - online - в этом режиме pool принимает на вход полный набор task для выполнения, по завершению обработки всех task он удаляется. Этот режим запуска в статье не описывается - его можно посмотреть в репозитории проекта.
 - background - в этом режиме pool запускается в фоне, стартует необходимое количество обработчиков и ожидает поступления задач в очередь 
 
@@ -816,16 +816,16 @@ func (p *Pool) shutdownUnsafe(shutdownMode PoolShutdownMode, shutdownTimeout tim
 
 Так выглядит использование памяти оптимизированного workerp pool под нагрузкой - всего 16 Мбайт
 
-![](https://raw.githubusercontent.com/al-khazarr/SocialOpportunities/master/doc/image/2023-03-07_09-16-32.png)
+![](https://raw.githubusercontent.com/al-khazarr/GateKeeper/master/doc/image/2023-03-07_09-16-32.png)
 
 
 А так выглядит вариант с неправильным использованием time.After под нагрузкой - уже 3255 Мбайт
 
-![](https://raw.githubusercontent.com/al-khazarr/SocialOpportunities/master/doc/image/2023-03-07_09-13-36.png)
+![](https://raw.githubusercontent.com/al-khazarr/GateKeeper/master/doc/image/2023-03-07_09-13-36.png)
 
 ### Реализация TaskPool 
 
-Реализация [TaskPool](https://github.com/al-khazarr/SocialOpportunities/blob/master/pkg/common/workerpool/taskpool.go)
+Реализация [TaskPool](https://github.com/al-khazarr/GateKeeper/blob/master/pkg/common/workerpool/taskpool.go)
 - При создании новой task создаются все необходимые каналы, контекст и таймер
 - При получении task из sync.Pool дополнительных действий не требуется
 - При помещении task в sync.Pool проверяется ее статус. 
@@ -908,7 +908,7 @@ func (p *Pool) PrintTaskPoolStats() {
 
 Каждый task из группы выполняется в отдельно и по завершению всей группы результаты суммируются.
 
-[Фукнция-обработчик для расчета факториала n!](https://github.com/al-khazarr/SocialOpportunities/blob/master/pkg/app/httphandler/handler_wp.go).
+[Фукнция-обработчик для расчета факториала n!](https://github.com/al-khazarr/GateKeeper/blob/master/pkg/app/httphandler/handler_wp.go).
 
 ``` go
 func calculateFactorialFn(parentCtx context.Context, ctx context.Context, data ...interface{}) (error, []interface{}) {
@@ -931,7 +931,7 @@ func calculateFactorialFn(parentCtx context.Context, ctx context.Context, data .
 }
 ```
 
-[Фукнция-обработчик для формирования группы task и суммирования результатов](https://github.com/al-khazarr/SocialOpportunities/blob/master/pkg/app/httphandler/handler_wp.go).
+[Фукнция-обработчик для формирования группы task и суммирования результатов](https://github.com/al-khazarr/GateKeeper/blob/master/pkg/app/httphandler/handler_wp.go).
 
 ``` go
 // calculateFactorial функция запуска расчета Factorial
@@ -982,10 +982,10 @@ func calculateFactorial(ctx context.Context, wpService *_wpservice.Service, requ
 Содержит наборы task в диапазоне от 1 до 4096. Запуск через командную строку. Чтобы получить репрезентативную выборку, запускаем 5 тестов 
 
 ``` shell
-go.exe test -benchmem -run=^$ -bench ^BenchmarkCalculateFactorial$ github.com/al-khazarr/SocialOpportunities/pkg/app/httphandler -count 5 -v
+go.exe test -benchmem -run=^$ -bench ^BenchmarkCalculateFactorial$ github.com/al-khazarr/GateKeeper/pkg/app/httphandler -count 5 -v
 ```
 
-[BenchmarkCalculateFactorial](https://github.com/al-khazarr/SocialOpportunities/blob/master/pkg/app/httphandler/handler_wp_test.go)
+[BenchmarkCalculateFactorial](https://github.com/al-khazarr/GateKeeper/blob/master/pkg/app/httphandler/handler_wp_test.go)
 - Создаем Worker pool service
 - Запускаем Worker pool service в фоне и делаем минимальную задержку для инициации pool
 - Далее в цикле запускаем нужный тестовый набор от 1 до 4096 task
@@ -1046,7 +1046,7 @@ func BenchmarkCalculateFactorial(b *testing.B) {
 2023-03-05 20:51:25.880455    info    workerpool/taskpool.go:68    (*Pool).PrintTaskPoolStats() - Usage task pool: countGet, countPut, countNew['1233606', '0', '1233606']
 BenchmarkCalculateFactorial-4             138361              8553 ns/op            1209 B/op         21 allocs/op
 PASS
-ok      github.com/al-khazarr/SocialOpportunities/pkg/app/httphandler       11.171s
+ok      github.com/al-khazarr/GateKeeper/pkg/app/httphandler       11.171s
 ```
 
 2. Тестируем оптимизированный вариант worker pool. Включен sync.Pool и с time.timer
@@ -1070,7 +1070,7 @@ PASS
 2023-03-05 20:54:33.230567    info    workerpool/taskpool.go:68    (*Pool).PrintTaskPoolStats() - Usage task pool: countGet, countPut, countNew['4277500', '0', '4277500']
 BenchmarkCalculateFactorial-4               6594            179944 ns/op           80624 B/op       1308 allocs/op
 PASS
-ok      github.com/al-khazarr/SocialOpportunities/pkg/app/httphandler       8.237s
+ok      github.com/al-khazarr/GateKeeper/pkg/app/httphandler       8.237s
 ```
 
 2. Тестируем оптимизированный вариант worker pool. Включен sync.Pool и с time.timer
@@ -1081,7 +1081,7 @@ ok      github.com/al-khazarr/SocialOpportunities/pkg/app/httphandler       8.23
 2023-03-05 20:58:15.388267    info    workerpool/taskpool.go:68    (*Pool).PrintTaskPoolStats() - Usage task pool: countGet, countPut, countNew['7658300', '7658300', '149']
 BenchmarkCalculateFactorial-4              10671            103819 ns/op            6246 B/op        308 allocs/op
 PASS
-ok      github.com/al-khazarr/SocialOpportunities/pkg/app/httphandler       8.513s
+ok      github.com/al-khazarr/GateKeeper/pkg/app/httphandler       8.513s
 ```
 
 ### Результаты тестирования для 1024 task
@@ -1094,7 +1094,7 @@ ok      github.com/al-khazarr/SocialOpportunities/pkg/app/httphandler       8.51
 2023-03-05 20:55:19.021540    info    workerpool/taskpool.go:68    (*Pool).PrintTaskPoolStats() - Usage task pool: countGet, countPut, countNew['6581248', '0', '6581248']
 BenchmarkCalculateFactorial-4                696           1623650 ns/op          819853 B/op      13321 allocs/op
 PASS
-ok      github.com/al-khazarr/SocialOpportunities/pkg/app/httphandler       11.370s
+ok      github.com/al-khazarr/GateKeeper/pkg/app/httphandler       11.370s
 ```
 
 2. Тестируем оптимизированный вариант worker pool. Включен sync.Pool и с time.timer
@@ -1105,7 +1105,7 @@ ok      github.com/al-khazarr/SocialOpportunities/pkg/app/httphandler       11.3
 2023-03-05 20:57:26.738321    info    workerpool/taskpool.go:68    (*Pool).PrintTaskPoolStats() - Usage task pool: countGet, countPut, countNew['12699648', '12699648', '2089']
 BenchmarkCalculateFactorial-4               1438            837543 ns/op           61221 B/op       3082 allocs/op
 PASS
-ok      github.com/al-khazarr/SocialOpportunities/pkg/app/httphandler       10.800s
+ok      github.com/al-khazarr/GateKeeper/pkg/app/httphandler       10.800s
 ```
 
 ### Сравнение результатов
@@ -1141,7 +1141,7 @@ Usage task pool: countGet, countPut, countNew['12699648', '12699648', '2089']
 2023-03-05 21:05:42.498569    info    workerpool/taskpool.go:68    (*Pool).PrintTaskPoolStats() - Usage task pool: countGet, countPut, countNew['0', '0', '0']
 BenchmarkCalculateFactorial-4              26288             45514 ns/op               0 B/op          0 allocs/op
 PASS
-ok      github.com/al-khazarr/SocialOpportunities/pkg/app/httphandler       8.675s
+ok      github.com/al-khazarr/GateKeeper/pkg/app/httphandler       8.675s
 ```
 
 Оптимизированный worker pool (на 2 физических ярах) отстает в 20 раз от прямого расчета суммы факториалов в один поток.
@@ -1190,7 +1190,7 @@ func calculateEmptyFn(parentCtx context.Context, ctx context.Context, data ...in
 
 #### Результат профилирования для "длинных" task
 
-![](https://raw.githubusercontent.com/al-khazarr/SocialOpportunities/master/doc/image/2023-03-06_09-39-42.png)
+![](https://raw.githubusercontent.com/al-khazarr/GateKeeper/master/doc/image/2023-03-06_09-39-42.png)
 
 - Memory
   - workerpool.(*Worker).run - память не выделялась
@@ -1206,7 +1206,7 @@ func calculateEmptyFn(parentCtx context.Context, ctx context.Context, data ...in
 
 #### Результат профилирования для "коротких" task
 
-![](https://raw.githubusercontent.com/al-khazarr/SocialOpportunities/master/doc/image/2023-03-06_09-21-45.png)
+![](https://raw.githubusercontent.com/al-khazarr/GateKeeper/master/doc/image/2023-03-06_09-21-45.png)
 
 - Memory
     - workerpool.(*Worker).run - память не выделялась
