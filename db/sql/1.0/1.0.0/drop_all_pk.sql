@@ -1,2 +1,0 @@
-ALTER TABLE app.currencies DROP CONSTRAINT IF EXISTS currencies_pk CASCADE;
-ALTER TABLE app.countries DROP CONSTRAINT IF EXISTS countries_pk CASCADE;
